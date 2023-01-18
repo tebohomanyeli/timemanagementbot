@@ -1,0 +1,76 @@
+-------------------------------------------------------------------------------
+How to connect to the Google Calendar API
+Video Link: https://youtu.be/vUOtS6zU40A
+-------------------------------------------------------------------------------
+
+Step 1: Go to this website
+    Website: https://console.cloud.google.com/
+
+Step 2: Type "create new project" in the search
+    Click on Create a Project.
+
+Step 3: Give your project a name.
+    e.g. Time Management    (No special characters)
+
+Step 4: Drop down menu: 
+    1>> Click on APIs and services 
+    2>> Enable APIs and services
+    3>> Click on "+ ENABLE APIS AND SERVICES" 
+    4>> search for "Google Calendar" 
+    5>> Click on Google Calendar
+    6>> Click on ENABLE
+
+Step 5: Drop down menu: >APIs and services >OAuth consent screen
+    1>> User Type = "External"
+    2>> Click on CREATE
+
+    NB: Interal vs External option:
+        Interal is only available to users within your organisation.
+
+    3>> At this point it should take you to the "App information" page,
+        fill in the following areas:
+        >   App name
+        >   User support email
+        Scoll to the bottom under "Developer contact information" and 
+        fill in the following area:
+        >   Email addresses 
+    4>> Click on SAVE
+
+Step 6: It should redirect you to the Scopes tab. Here Scopes express 
+        the permissions that you request users to authorise for your app.
+
+    1>> Click on "ADD OR REMOVE SCOPES"
+    2>> Scoll down to find all the ones related to the Google Calendar.
+    3>> Select ALL the related scopes 
+        Filter: Google Calendar API
+    4>> Click on UPDATE
+    5>> Scoll to the bottom
+        Click on SAVE AND CONTINUE
+
+Step 7: It should redirect you to the Test Users tab.
+    1>> Add yourself (email) as a test user to avoid errors
+    2>> Click on SAVE ADD CONTINUE
+
+Step 8: Drop down menu: >APIs and services >Credentials
+    1>> Click on "+ CREATE CREDENTIALS"
+        Select OAuth Client ID.
+        > Application Type = Desktop App
+        > Name = Tebo_DevKing
+        > Click Create.
+
+    2>> Click on DOWNLOAD.JSON
+        > Move this file into the same folder you are coding in.
+        > rename it to: credentials.json
+
+-------------------------------------------------------------------------------
+Quick Start Code:
+    https://developers.google.com/calendar/api/quickstart/python
+
+Step 1: Create a virtual environment (See file number2 under My Notes)
+Step 2: Install the Google API using this command:
+     >> pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+Step 3: Run the script
+        to allow access.
+    
+
+

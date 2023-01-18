@@ -1,0 +1,22 @@
+Change or move into your project directory
+
+Run this in terminal:
+    >> python3 -m venv <name_of_virtualenv>
+    e.g. python3 -m venv venvTimeMan
+
+Error Notes:
+In case this command doesn't run, we will have to first install the python
+virtual environment module.
+    >> sudo apt install python3.10-venv
+
+
+-------------------------------------------------------------------------------
+Activate the virtual environment:
+Run:
+    >> source venvTimeMan/bin/activate
+
+
+-------------------------------------------------------------------------------
+Now let's install the google package:
+    >> pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
