@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/wtc/student_work/prac/MyTimeManagement/venvTimeMan"
+set -gx VIRTUAL_ENV "/home/teboho/student_work/group_work/timemanagementbot/venvTimeMan"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

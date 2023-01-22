@@ -1,51 +1,14 @@
-"""
-This code was copied from the quickstart.py
-    -   Change the "SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']"
-    to  SCOPES = ['https://www.googleapis.com/auth/calendar']
-this will allow was to edit the calendar.
-"""
-
-from __future__ import print_function
-
-import datetime
-import os.path
-
-from google.auth.transport.requests import Request
-from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-
-# If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/calendar']
-
+import connect_to_api as api
+import connect_to_calendar as calendar
 
 def main():
-    from connect_to_api import login
-    creds = login()
-
+    creds = api.login()     #creates login credentials for user
+    service = calendar.connect_to_calendar_api(creds)   #calls the google calendar api
 
     try:
-        service = build('calendar', 'v3', credentials=creds)
+        calendar.commitHours(service)
 
-        # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
-        print('Getting the upcoming 10 events')
-        events_result = service.events().list(calendarId='primary', timeMin=now,
-                                              maxResults=10, singleEvents=True,
-                                              orderBy='startTime').execute()
-        events = events_result.get('items', [])
-
-        if not events:
-            print('No upcoming events found.')
-            return
-
-        # Prints the start and name of the next 10 events
-        for event in events:
-            start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
-
-    except HttpError as error:
+    except calendar.HttpError as error:
         print('An error occurred: %s' % error)
 
 

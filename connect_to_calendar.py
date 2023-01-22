@@ -43,28 +43,24 @@ def quickstart():
 
 
 def connect_to_calendar_api(creds):
-    return build('calendar', 'v3', credentials=creds)
+    service = build('calendar', 'v3', credentials=creds)
+    return service
 
 
 #-------------------------------------------------------------------------------
 import connect_to_api as api
 
-
-
-
-def commitHours():
-    creds = api.login()
-    service = connect_to_calendar_api(creds)
+def commitHours(service):
     """
     Objective is to save all the events from this day on in to a database. 
     """
 
-    #Time Formate
+    #Time Format
     today       = datetime.date.today()         #; print(today)
     start_time  = str(today) + "T00:00:00Z"     #; print(start_time)
     end_time    = str(today) + "T23:59:59Z"     #; print(end_time)      # "Z" indicates UTC time
 
-    print("Getting today's coding hours")
+    print("\nGetting today's coding hours")
 
     #My Calendars:
     """NOTE:
@@ -102,9 +98,8 @@ def commitHours():
     #Time duration monitor:
     total_duration = datetime.timedelta(seconds=0, minutes=0, hours= 0)
 
+    #Print the events and times
     print("Coding/Programming Hours:")
-    
-
     for event in events:
         start   = event['start'].get('dateTime', event['start'].get('date'))
         end     = event['end'].get('dateTime', event['end'].get('date'))
@@ -117,11 +112,4 @@ def commitHours():
 
         total_duration += duration
         print(f"{event['summary']}, duration: {duration}")
-        print(f"Total coding time: {total_duration}")
-
-
-
-try:
-    commitHours()
-except HttpError as error:
-        print('An error occurred: %s' % error)
+    print(f"Total coding time: {total_duration}")

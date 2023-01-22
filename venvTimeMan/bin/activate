@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/wtc/student_work/prac/MyTimeManagement/venvTimeMan"
+VIRTUAL_ENV="/home/teboho/student_work/group_work/timemanagementbot/venvTimeMan"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
