@@ -1,9 +1,13 @@
 import connect_to_api as api
 import connect_to_calendar as calendar
+import sql_database as database
+
 
 def main():
     creds = api.login()     #creates login credentials for user
     service = calendar.connect_to_calendar_api(creds)   #calls the google calendar api
+
+    
 
     try:
         calendar.commitHours(service)
