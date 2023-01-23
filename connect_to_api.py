@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 import os.path
 
 from google.auth.transport.requests import Request
@@ -48,6 +46,7 @@ def login():
     print("Welcome to Time Managment Bot.\nPlease login")
     email = enter_email()
 
+    #create database file
     if not os.path.exists("admin_users_database.txt"):
         open("admin_users_database.txt","w")
 

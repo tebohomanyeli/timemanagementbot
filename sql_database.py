@@ -23,7 +23,7 @@ def create_table(name_of_table:str):
 
     # create the table with columns
     connection.execute(
-                    """CREATE TABLE hours
+                    f"""CREATE TABLE {name_of_table}
                     (
                         DATE        DATE    NOT NULL,
                         CATEGORY    TEXT    NOT NULL,
