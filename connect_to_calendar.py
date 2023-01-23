@@ -48,7 +48,6 @@ def connect_to_calendar_api(creds):
 
 
 #-------------------------------------------------------------------------------
-import connect_to_api as api
 
 def commitHours(service):
     """

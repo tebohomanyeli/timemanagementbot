@@ -54,7 +54,7 @@ def login():
     with open("admin_users_database.txt","r") as users:
         if email in users.read() and os.path.exists(f'{email}.json'):
             creds = Credentials.from_authorized_user_file(f'{email}.json', SCOPES)
-            print("Login Successfull")
+            print("Login Successful")
             return creds
 
         else:
